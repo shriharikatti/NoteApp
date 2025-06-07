@@ -10,8 +10,11 @@ const noteSchema = mongoose.Schema(
       required: true,
     },
     content: {
-      type: string,
+      type: String,
     },
   },
   { timestamps: true }
 );
+
+const Note = mongoose.model("Note", noteSchema);
+export default Note;

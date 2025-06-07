@@ -1,18 +1,15 @@
 import express from 'express';
 import dotenv from 'dotenv'
 import { connectDB } from './config/db.js';
-import authRoutes from './routes/auth.routes.js'
+import NoteRoutes from './routes/Note.routes.js'
 
 
 dotenv.config();
 
 const app = express();
+app.use(express.json())
 
-app.get('/',(req,res)=>{
-    res.send("Hello world");
-})
-
-app.use('/api/v1/',authRoutes);
+app.use('/api/notes',NoteRoutes);
 
 connectDB();
 
